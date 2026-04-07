@@ -28,13 +28,8 @@
     <light pos="0 0 5" dir="0 0 -1" type="directional" castshadow="true"/>
     <geom name="floor" type="hfield" hfield="hfield" material="groundplane" contype="1" conaffinity="0" priority="1"
       friction="1.0"/>
-
-    <!-- Robot spawns at (0,0) facing +X. Goal at x=5. Boundaries via software. -->
     <site name="goal" pos="5 0 0" rgba="1 0 0 1" size="0.1"/>
-
     <camera name="birds_eye" pos="2.5 0 3.5" xyaxes="1 0 0 0 1 0" fovy="60"/>
-
-    <!-- ENV 5: Realistic debris field — 60 pieces, no-overlap, seed=42 -->
     <body name="rubble1" pos="3.976 1.149 0.149"><geom name="rubble1_geom" type="box" size="0.149 0.149 0.149" material="debris_matte" condim="3" margin="0.02" gap="0.01" contype="1" conaffinity="1" priority="1" group="0"/></body>
     <body name="rubble2" pos="1.626 -1.131 0.148"><geom name="rubble2_geom" type="box" size="0.148 0.148 0.148" material="debris_matte" condim="3" margin="0.02" gap="0.01" contype="1" conaffinity="1" priority="1" group="0"/></body>
     <body name="rubble3" pos="1.194 -0.211 0.146"><geom name="rubble3_geom" type="sphere" size="0.146 0.146 0.146" material="debris_matte" condim="3" margin="0.02" gap="0.01" contype="1" conaffinity="1" priority="1" group="0"/></body>

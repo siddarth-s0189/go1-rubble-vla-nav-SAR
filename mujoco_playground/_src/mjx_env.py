@@ -221,12 +221,13 @@ class MjxEnv(abc.ABC):
       config: config_dict.ConfigDict,
       config_overrides: Optional[Dict[str, Union[str, int, list[Any]]]] = None,
   ):
-    self._config = config.lock()
+    # Apply overrides before locking; locked configs may reject updates.
     if config_overrides:
-      self._config.update_from_flattened_dict(config_overrides)
+      config.update_from_flattened_dict(config_overrides)
+    self._config = config.lock()
 
-    self._ctrl_dt = config.ctrl_dt
-    self._sim_dt = config.sim_dt
+    self._ctrl_dt = self._config.ctrl_dt
+    self._sim_dt = self._config.sim_dt
 
   @abc.abstractmethod
   def reset(self, rng: jax.Array) -> State:
